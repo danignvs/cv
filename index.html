@@ -212,59 +212,55 @@
             font-size: 1.1rem;
         }
 
-        /* QI Section */
+        /* Cognitive Profile Section */
         #qi {
             background-color: #FFFFFF;
         }
-        
-        .qi-cards {
+
+        .cognitive-cards {
             display: grid;
             grid-template-columns: 1fr;
             gap: 2rem;
-            margin-bottom: 2rem;
         }
         @media (min-width: 600px) {
-            .qi-cards {
-                grid-template-columns: 1fr 1fr;
+            .cognitive-cards {
+                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
-        .qi-card {
-            border: 2px solid var(--color-light-gray);
+        
+        .cognitive-card {
+            background-color: #F8FAFC;
+            border: 1px solid var(--color-light-gray);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 2rem 1.5rem;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
 
-        .qi-card:hover {
+        .cognitive-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 25px rgba(67, 56, 202, 0.1);
+            border-color: var(--color-primary);
         }
 
-        .qi-card .score {
-            font-size: 5rem;
-            font-weight: 900;
-            font-family: var(--font-heading);
-            min-height: 80px; /* Reserve space for counter */
+        .cognitive-card svg {
+            width: 40px;
+            height: 40px;
+            color: var(--color-primary);
+            margin: 0 auto 1.5rem;
         }
 
-        .qi-card .label {
-            font-weight: 700;
-            margin-top: 0.5rem;
+        .cognitive-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-primary-dark);
         }
 
-        .qi-card.genius .score { color: var(--color-primary); }
-        .qi-card.genius .label { color: var(--color-primary-dark); }
-        .qi-card.human .score { color: var(--color-secondary); }
-        .qi-card.human .label { color: #A16207; } /* Amber 700 */
-
-        .qi-conclusion {
-            text-align: center;
-            font-style: italic;
-            max-width: 60ch;
-            margin: 0 auto;
+        .cognitive-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
+
 
         /* Experience Timeline */
         .timeline {
@@ -360,18 +356,23 @@
         .skill-card {
             background-color: #F8FAFC;
             border-radius: 12px;
-            padding: 1.5rem 1rem;
+            padding: 2rem 1rem 1.5rem 1rem;
             text-align: center;
             border: 2px solid var(--color-light-gray);
             transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 170px;
         }
         .skill-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-15px);
             border-color: var(--color-primary);
-            box-shadow: 0 10px 20px rgba(67, 56, 202, 0.1);
+            box-shadow: 0 15px 30px rgba(67, 56, 202, 0.15);
+            z-index: 10;
         }
         .skill-card svg {
             width: 40px;
@@ -388,84 +389,64 @@
             font-weight: 700;
             color: var(--color-heading);
             font-size: 1rem;
-            margin-bottom: 1rem; /* Space before the bar */
-        }
-        
-        .skill-level-indicator {
-            width: 100%;
-            height: 1.2rem; /* Fixed height to prevent size change */
-            margin-top: auto;
-            position: relative; /* For absolute children */
+            margin: 0 0 1rem 0;
         }
 
         .skill-bar-container {
-            width: 100%;
+            width: 80%;
             height: 8px;
             background-color: var(--color-light-gray);
             border-radius: 4px;
             overflow: hidden;
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            transition: opacity 0.2s ease-out;
-        }
-
-        .skill-bar {
-            height: 100%;
-            width: 0; /* Initial state for animation */
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
-            transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s;
         }
         
-        .skill-card.level-advanced.visible .skill-bar { width: 90%; background-color: var(--color-primary); }
-        .skill-card.level-intermediate.visible .skill-bar { width: 70%; background-color: var(--color-secondary); }
-
-        /* Shimmer effect on hover */
-        .skill-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+        .skill-bar {
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.7s ease-in-out;
-        }
-        .skill-card:hover .skill-bar::after {
-            transform: translateX(100%);
+            width: 0;
+            border-radius: 4px;
+            transition: width 0.8s 0.2s ease-in-out;
         }
 
-        .skill-level-text {
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+        .skill-card.visible.level-advanced .skill-bar {
+            width: 95%;
+        }
+        .skill-card.visible.level-intermediate .skill-bar {
+            width: 75%;
+        }
+
+        .skill-card.level-advanced .skill-bar {
+            background-color: var(--color-primary);
+        }
+        .skill-card.level-intermediate .skill-bar {
+            background-color: var(--color-secondary);
+        }
+
+
+        .skill-level-panel {
             position: absolute;
-            top: 50%;
+            bottom: 0;
             left: 0;
-            width: 100%;
-            transform: translateY(-50%);
-            opacity: 0;
-            transition: opacity 0.2s ease-in;
-            pointer-events: none;
+            right: 0;
+            padding: 0.6rem 0;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-align: center;
+            transform: translateY(101%);
+            transition: transform 0.3s ease-in-out;
         }
 
-        .skill-card.level-advanced .skill-level-text {
-            color: var(--color-primary);
-        }
-        .skill-card.level-intermediate .skill-level-text {
-            color: var(--color-secondary);
+        .skill-card:hover .skill-level-panel {
+            transform: translateY(0);
         }
 
-        .skill-card:hover .skill-bar-container {
-            opacity: 0;
+        .skill-card.level-advanced .skill-level-panel {
+            background-color: var(--color-primary);
         }
-        .skill-card:hover .skill-level-text {
-            opacity: 1;
+        .skill-card.level-intermediate .skill-level-panel {
+            background-color: var(--color-secondary);
         }
+
 
         .education-list {
             display: flex;
@@ -596,6 +577,13 @@
             .timeline-item.right { left: 0; }
             .timeline-item.left::after, .timeline-item.right::after { left: 10px; }
         }
+        
+        @media (max-width: 600px) {
+            .cognitive-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
 
         /* Scroll Animations */
         [data-animate] {
@@ -680,21 +668,31 @@
         </section>
 
         <section id="qi">
-            <div class="container" data-animate="fade-up">
-                <h2>O Paradoxo do QI</h2>
-                <div class="qi-cards">
-                    <div class="qi-card genius">
-                        <div class="score" data-target="129">0</div>
-                        <p class="label">Avaliação A: Gênio Criativo?</p>
+            <div class="container">
+                <h2 data-animate="fade-up">Perfil Cognitivo</h2>
+                <p data-animate="fade-up" style="text-align: center; max-width: 70ch; margin: -2rem auto 2.5rem; transition-delay: 0.1s;">As avaliações neuropsicológicas revelaram um perfil cognitivo com pontos fortes específicos, traduzidos aqui como vantagens competitivas para o ambiente profissional.</p>
+                <div class="cognitive-cards">
+                    <div class="cognitive-card" data-animate="fade-up" style="transition-delay: 0.2s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        <h4>Funções Executivas</h4>
+                        <p>Ótimo desempenho em planejamento, organização e resolução de problemas, indicando alta capacidade de execução estratégica.</p>
                     </div>
-                    <div class="qi-card human">
-                        <div class="score" data-target="88">0</div>
-                        <p class="label">Avaliação B: Apenas Humana?</p>
+                    <div class="cognitive-card" data-animate="fade-up" style="transition-delay: 0.3s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        <h4>Memória Visual & Percepção</h4>
+                        <p>Desempenho superior na cópia e memorização de figuras, garantindo alta fidelidade e atenção aos detalhes em projetos visuais.</p>
+                    </div>
+                    <div class="cognitive-card" data-animate="fade-up" style="transition-delay: 0.4s;">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        <h4>Atenção Sustentada</h4>
+                        <p>Capacidade de atenção e concentração acima da média, a base neurológica do superpoder de hiperfoco.</p>
+                    </div>
+                    <div class="cognitive-card" data-animate="fade-up" style="transition-delay: 0.5s;">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <h4>Raciocínio & Linguagem</h4>
+                        <p>Habilidade verbal e de linguagem apropriadas, assegurando excelente comunicação e compreensão de briefings.</p>
                     </div>
                 </div>
-                <p class="qi-conclusion">
-                    Em duas avaliações distintas, a ciência me apresentou a dois "eus" diferentes. A lição? Rótulos são limitantes. Prefiro ser medida pela capacidade de adaptação, pela criatividade e, acima de tudo, pelos resultados que entrego.
-                </p>
             </div>
         </section>
 
@@ -743,100 +741,68 @@
                 <h3 data-animate="fade-up">Habilidades Criativas & Técnicas</h3>
                 <div class="skills-grid">
                     <div class="skill-card level-advanced" data-animate="fade-up" style="transition-delay: 0.0s;">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                            <h4>Photoshop</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        <h4>Photoshop</h4>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-level-indicator">
-                            <div class="skill-bar-container">
-                                <div class="skill-bar"></div>
-                            </div>
-                            <div class="skill-level-text">Avançado</div>
-                        </div>
+                        <div class="skill-level-panel">Avançado</div>
                     </div>
                     <div class="skill-card level-advanced" data-animate="fade-up" style="transition-delay: 0.05s;">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                            <h4>Illustrator</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        <h4>Illustrator</h4>
+                         <div class="skill-bar-container">
+                            <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-level-indicator">
-                            <div class="skill-bar-container">
-                                <div class="skill-bar"></div>
-                            </div>
-                            <div class="skill-level-text">Avançado</div>
-                        </div>
+                        <div class="skill-level-panel">Avançado</div>
                     </div>
                     <div class="skill-card level-advanced" data-animate="fade-up" style="transition-delay: 0.1s;">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.67 18.5c.5.38.9.88 1.22 1.48.34.62.58 1.32.74 2.12.13.62.2 1.28.2 1.98a2.5 2.5 0 01-2.5 2.5c-.7 0-1.36-.07-1.98-.2a8.5 8.5 0 01-4.24-2.22c-1.88-1.52-3.26-3.6-3.98-5.92A9.4 9.4 0 014 10.5C4 7.42 6.42 5 9.5 5c.62 0 1.22.07 1.8.2.8.16 1.5.4 2.12.74.62.33 1.12.72 1.48 1.22L18 10.5l-1.92 1.92-2.4-2.4Z"></path><path d="m18 13 2.5 2.5"></path><path d="m18 7 2.5-2.5"></path><path d="m13 18l2.5 2.5"></path><path d="M7 18l-2.5 2.5"></path></svg>
-                            <h4>Canva</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.67 18.5c.5.38.9.88 1.22 1.48.34.62.58 1.32.74 2.12.13.62.2 1.28.2 1.98a2.5 2.5 0 01-2.5 2.5c-.7 0-1.36-.07-1.98-.2a8.5 8.5 0 01-4.24-2.22c-1.88-1.52-3.26-3.6-3.98-5.92A9.4 9.4 0 014 10.5C4 7.42 6.42 5 9.5 5c.62 0 1.22.07 1.8.2.8.16 1.5.4 2.12.74.62.33 1.12.72 1.48 1.22L18 10.5l-1.92 1.92-2.4-2.4Z"></path><path d="m18 13 2.5 2.5"></path><path d="m18 7 2.5-2.5"></path><path d="m13 18l2.5 2.5"></path><path d="M7 18l-2.5 2.5"></path></svg>
+                        <h4>Canva</h4>
+                         <div class="skill-bar-container">
+                            <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-level-indicator">
-                            <div class="skill-bar-container">
-                                <div class="skill-bar"></div>
-                            </div>
-                            <div class="skill-level-text">Avançado</div>
-                        </div>
+                        <div class="skill-level-panel">Avançado</div>
                     </div>
                     <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.15s;">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                            <h4>HTML</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        <h4>HTML</h4>
+                         <div class="skill-bar-container">
+                            <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-level-indicator">
-                            <div class="skill-bar-container">
-                                <div class="skill-bar"></div>
-                            </div>
-                           <div class="skill-level-text">Intermediário</div>
-                        </div>
+                        <div class="skill-level-panel">Intermediário</div>
                     </div>
                     <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.2s;">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V12.5"></path><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M10.1 12.1a2.1 2.1 0 1 0-2.2 2.2"></path><path d="M14.2 21a2.1 2.1 0 1 0-2.2-2.2"></path><path d="M18.3 14.3a2.1 2.1 0 1 0-2.2-2.2"></path></svg>
-                            <h4>CSS</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V12.5"></path><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M10.1 12.1a2.1 2.1 0 1 0-2.2 2.2"></path><path d="M14.2 21a2.1 2.1 0 1 0-2.2-2.2"></path><path d="M18.3 14.3a2.1 2.1 0 1 0-2.2-2.2"></path></svg>
+                        <h4>CSS</h4>
+                         <div class="skill-bar-container">
+                            <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-level-indicator">
-                            <div class="skill-bar-container">
-                                <div class="skill-bar"></div>
-                            </div>
-                            <div class="skill-level-text">Intermediário</div>
-                        </div>
+                        <div class="skill-level-panel">Intermediário</div>
                     </div>
                     <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.25s;">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18h-1v-6h1v1h1v2h-1v3zm4-4h-1v-2h1v1h1v2h-1v-1z"></path></svg>
-                            <h4>Excel</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18h-1v-6h1v1h1v2h-1v3zm4-4h-1v-2h1v1h1v2h-1v-1z"></path></svg>
+                        <h4>Excel</h4>
+                         <div class="skill-bar-container">
+                            <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-level-indicator">
-                            <div class="skill-bar-container">
-                                <div class="skill-bar"></div>
-                            </div>
-                            <div class="skill-level-text">Intermediário</div>
-                        </div>
+                        <div class="skill-level-panel">Intermediário</div>
                     </div>
                     <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.3s;">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                            <h4>Word</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <h4>Word</h4>
+                         <div class="skill-bar-container">
+                            <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-level-indicator">
-                            <div class="skill-bar-container">
-                                <div class="skill-bar"></div>
-                            </div>
-                           <div class="skill-level-text">Intermediário</div>
-                        </div>
+                       <div class="skill-level-panel">Intermediário</div>
                     </div>
                     <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.35s;">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="M9 15h6"></path></svg>
-                            <h4>Power Point</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="M9 15h6"></path></svg>
+                        <h4>Power Point</h4>
+                         <div class="skill-bar-container">
+                            <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-level-indicator">
-                            <div class="skill-bar-container">
-                                <div class="skill-bar"></div>
-                            </div>
-                            <div class="skill-level-text">Intermediário</div>
-                        </div>
+                        <div class="skill-level-panel">Intermediário</div>
                     </div>
                 </div>
 
@@ -867,7 +833,7 @@
                 <div class="preference-card" data-animate="fade-up" style="transition-delay: 0s;">
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                     <h4>Remoto</h4>
-                    <p>Ambiente controlado que favorece o hiperfoco e a qualidade nas entregas.</p>
+                    <p>Ambiente controlado que favorece o hiperfoco.</p>
                 </div>
                 <div class="preference-card" data-animate="fade-up" style="transition-delay: 0.1s;">
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -885,7 +851,7 @@
 
     <footer class="footer">
         <h2 data-animate="fade-up">Vamos criar algo incrível juntos?</h2>
-        <a href="./curriculo-daniela-genovese.pdf" download class="download-btn" data-animate="fade-up" style="transition-delay: 0.1s;">
+        <a href="https://bit.ly/cv_daniela-genovese" target="blank" download class="download-btn" data-animate="fade-up" style="transition-delay: 0.1s;">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             Baixar Currículo
         </a>
@@ -905,38 +871,6 @@
 
         const animatedElements = document.querySelectorAll('[data-animate]');
         animatedElements.forEach((el) => observer.observe(el));
-
-        // --- QI Counter Animation Logic ---
-        const animateCountUp = (el) => {
-            const target = parseInt(el.getAttribute('data-target'), 10);
-            let count = 0;
-            const duration = 1500; // milliseconds
-            const increment = target / (duration / 16); // ~60fps
-
-            const updateCount = () => {
-                count += increment;
-                if (count < target) {
-                    el.innerText = Math.ceil(count);
-                    requestAnimationFrame(updateCount);
-                } else {
-                    el.innerText = target;
-                }
-            };
-            requestAnimationFrame(updateCount);
-        };
-
-        const counterObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCountUp(entry.target);
-                    observer.unobserve(entry.target); // Animate only once
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        document.querySelectorAll('.score[data-target]').forEach(el => {
-            counterObserver.observe(el);
-        });
     });
     </script>
 
