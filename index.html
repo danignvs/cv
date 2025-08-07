@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daniela Genovese - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #4338CA; /* Indigo 700 */
+            --color-primary-dark: #312E81; /* Indigo 900 */
+            --color-secondary: #F59E0B; /* Amber 500 */
+            --color-bg: #F8FAFC; /* Slate 50 */
+            --color-text: #334155; /* Slate 700 */
+            --color-heading: #1E293B; /* Slate 800 */
+            --color-light-gray: #E2E8F0; /* Slate 200 */
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* Prevent horizontal scrollbars from animations */
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--color-heading);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            text-align: center;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--color-primary);
+            border-radius: 2px;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+            color: white;
+            padding: 5rem 1.5rem;
+            text-align: center;
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%),
+                linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            opacity: 0.5;
+            animation: move-bg 20s linear infinite;
+        }
+
+        @keyframes move-bg {
+            0% { background-position: 0 0, 30px 30px; }
+            100% { background-position: 60px 60px, 90px 90px; }
+        }
+
+
+        .header h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.25rem;
+            color: var(--color-light-gray);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--color-secondary);
+            transform: scale(1.05);
+        }
+
+        .contact-info svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* About Section */
+        #sobre .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            #sobre .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text strong {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .superpowers {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .superpower-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #ffffff, #e6e9ee);
+            border: 1px solid var(--color-light-gray);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .superpower-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(67, 56, 202, 0.1);
+            border-color: var(--color-primary);
+        }
+        
+        .superpower-card svg {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            color: var(--color-primary);
+        }
+        .superpower-card h4 {
+            margin-bottom: 0.2rem;
+            font-size: 1.1rem;
+        }
+
+        /* QI Section */
+        #qi {
+            background-color: #FFFFFF;
+        }
+        
+        .qi-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        @media (min-width: 600px) {
+            .qi-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .qi-card {
+            border: 2px solid var(--color-light-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .qi-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .qi-card .score {
+            font-size: 5rem;
+            font-weight: 900;
+            font-family: var(--font-heading);
+            min-height: 80px; /* Reserve space for counter */
+        }
+
+        .qi-card .label {
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .qi-card.genius .score { color: var(--color-primary); }
+        .qi-card.genius .label { color: var(--color-primary-dark); }
+        .qi-card.human .score { color: var(--color-secondary); }
+        .qi-card.human .label { color: #A16207; } /* Amber 700 */
+
+        .qi-conclusion {
+            text-align: center;
+            font-style: italic;
+            max-width: 60ch;
+            margin: 0 auto;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--color-light-gray);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 1rem 2.5rem;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--color-primary);
+            top: 24px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+
+        .timeline-item.left::after {
+            right: -10px;
+        }
+
+        .timeline-item.right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .timeline-content .period {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+        .timeline-content .company {
+            font-weight: 700;
+            color: #64748B; /* Slate 500 */
+            margin-bottom: 0.75rem;
+        }
+
+        /* Competencies Section */
+        #competencias {
+             background-color: #FFFFFF;
+        }
+        #competencias h3 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: var(--color-primary-dark);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+         @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .skill-card {
+            background-color: #F8FAFC;
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 2px solid var(--color-light-gray);
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-primary);
+            box-shadow: 0 10px 20px rgba(67, 56, 202, 0.1);
+        }
+        .skill-card svg {
+            width: 40px;
+            height: 40px;
+            color: var(--color-primary);
+            margin: 0 auto 1rem;
+            transition: color 0.3s;
+        }
+        .skill-card:hover svg {
+            color: var(--color-secondary);
+        }
+        .skill-card h4 {
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--color-heading);
+            font-size: 1rem;
+            margin-bottom: 1rem; /* Space before the bar */
+        }
+        
+        .skill-level-indicator {
+            width: 100%;
+            height: 1.2rem; /* Fixed height to prevent size change */
+            margin-top: auto;
+            position: relative; /* For absolute children */
+        }
+
+        .skill-bar-container {
+            width: 100%;
+            height: 8px;
+            background-color: var(--color-light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            transition: opacity 0.2s ease-out;
+        }
+
+        .skill-bar {
+            height: 100%;
+            width: 0; /* Initial state for animation */
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s;
+        }
+        
+        .skill-card.level-advanced.visible .skill-bar { width: 90%; background-color: var(--color-primary); }
+        .skill-card.level-intermediate.visible .skill-bar { width: 70%; background-color: var(--color-secondary); }
+
+        /* Shimmer effect on hover */
+        .skill-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.7s ease-in-out;
+        }
+        .skill-card:hover .skill-bar::after {
+            transform: translateX(100%);
+        }
+
+        .skill-level-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.2s ease-in;
+            pointer-events: none;
+        }
+
+        .skill-card.level-advanced .skill-level-text {
+            color: var(--color-primary);
+        }
+        .skill-card.level-intermediate .skill-level-text {
+            color: var(--color-secondary);
+        }
+
+        .skill-card:hover .skill-bar-container {
+            opacity: 0;
+        }
+        .skill-card:hover .skill-level-text {
+            opacity: 1;
+        }
+
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .education-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: #F8FAFC;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid var(--color-light-gray);
+        }
+        .education-item svg {
+            color: var(--color-primary);
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+        .education-item strong {
+            font-weight: 700;
+            color: var(--color-heading);
+            font-size: 1.1rem;
+        }
+        .education-item span {
+            color: var(--color-text);
+        }
+
+        /* Work Preferences */
+        #ambiente .intro {
+            text-align: center;
+            max-width: 60ch;
+            margin: 0 auto 2.5rem;
+        }
+        .preferences-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 820px) {
+             .preferences-cards {
+                grid-template-columns: repeat(3, 1fr);
+             }
+        }
+        .preference-card {
+            background-color: white;
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .preference-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+        }
+        .preference-card svg {
+            width: 40px;
+            height: 40px;
+            color: var(--color-primary);
+            margin: 0 auto 1rem;
+        }
+        .preference-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .preference-card p {
+            font-size: 0.9rem;
+            color: #64748B;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-primary-dark);
+            color: var(--color-light-gray);
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+        .footer h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer h2::after {
+            background-color: var(--color-secondary);
+        }
+        .download-btn {
+            background-color: var(--color-secondary);
+            color: var(--color-primary-dark);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 1rem 2.5rem;
+            border-radius: 999px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background-color: #FBBF24; /* Amber 400 */
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        .footer .credits {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .timeline::after { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 1rem; }
+            .timeline-item.right { left: 0; }
+            .timeline-item.left::after, .timeline-item.right::after { left: 10px; }
+        }
+
+        /* Scroll Animations */
+        [data-animate] {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        [data-animate="fade-up"] {
+            transform: translateY(30px);
+        }
+        [data-animate="fade-in"] {
+            transform: translateY(0);
+        }
+        [data-animate="slide-left"] {
+            transform: translateX(-50px);
+        }
+         [data-animate="slide-right"] {
+            transform: translateX(50px);
+        }
+        [data-animate].visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="name" data-animate="fade-up">DANIELA GENOVESE</h1>
+        <p class="subtitle" data-animate="fade-up" style="transition-delay: 0.1s;">DESIGNER GRÁFICA & ASSISTENTE ADMINISTRATIVA</p>
+        <div class="contact-info" data-animate="fade-up" style="transition-delay: 0.2s;">
+            <a href="tel:11980648490">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (11) 98064-8490
+            </a>
+            <a href="https://www.linkedin.com/in/danielagenovese" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                /danielagenovese
+            </a>
+            <a href="mailto:daniela.genovese@gmail.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                daniela.genovese@gmail.com
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="sobre">
+            <div class="container">
+                <div class="about-text" data-animate="fade-up">
+                    <h2 style="text-align: left; margin-bottom: 2rem;">Sobre Mim</h2>
+                    <p>
+                        Onde alguns veem linhas, eu vejo padrões. Onde há caos, eu crio ordem. Minha jornada com o design não começou em um curso, mas na forma como meu cérebro sempre esteve programado para ver o mundo.
+                    </p>
+                    <p>
+                        O diagnóstico de <strong>autismo nível 1</strong> não me definiu, apenas nomeou meu maior trunfo: um sistema operacional nativo para a <strong>criatividade focada e a execução impecável</strong>.
+                    </p>
+                </div>
+                <div class="superpowers">
+                    <div class="superpower-card" data-animate="fade-up" style="transition-delay: 0.1s;">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        <div>
+                            <h4>Foco Absoluto</h4>
+                            <p>Capacidade de mergulhar em projetos, silenciando o ruído externo.</p>
+                        </div>
+                    </div>
+                    <div class="superpower-card" data-animate="fade-up" style="transition-delay: 0.2s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                        <div>
+                            <h4>Organização Impecável</h4>
+                            <p>Estruturo informações, arquivos e fluxos de trabalho de forma lógica.</p>
+                        </div>
+                    </div>
+                    <div class="superpower-card" data-animate="fade-up" style="transition-delay: 0.3s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        <div>
+                            <h4>Visão de Detalhe</h4>
+                            <p>Percebo as nuances que transformam o bom design em algo extraordinário.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="qi">
+            <div class="container" data-animate="fade-up">
+                <h2>O Paradoxo do QI</h2>
+                <div class="qi-cards">
+                    <div class="qi-card genius">
+                        <div class="score" data-target="129">0</div>
+                        <p class="label">Avaliação A: Gênio Criativo?</p>
+                    </div>
+                    <div class="qi-card human">
+                        <div class="score" data-target="88">0</div>
+                        <p class="label">Avaliação B: Apenas Humana?</p>
+                    </div>
+                </div>
+                <p class="qi-conclusion">
+                    Em duas avaliações distintas, a ciência me apresentou a dois "eus" diferentes. A lição? Rótulos são limitantes. Prefiro ser medida pela capacidade de adaptação, pela criatividade e, acima de tudo, pelos resultados que entrego.
+                </p>
+            </div>
+        </section>
+
+        <section id="experiencia" class="container">
+            <h2 data-animate="fade-up">Experiência Profissional</h2>
+            <div class="timeline">
+                <div class="timeline-item left" data-animate="slide-right">
+                    <div class="timeline-content">
+                        <p class="period">2007 - Atual</p>
+                        <h3>Designer Gráfica</h3>
+                        <p class="company">Freelancer</p>
+                        <p>Vetorização e tratamento de imagens (Photoshop, Illustrator). Criação e administração de site com molduras digitais, tutoriais e artes para festas, gerando receita através de anúncios.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-animate="slide-left">
+                    <div class="timeline-content">
+                        <p class="period">07/2003 - 01/2004</p>
+                        <h3>Auxiliar de Escritório</h3>
+                        <p class="company">Petrobrás</p>
+                        <p>Organização de documentos de borderô, conferência de dados, envio para o Banco do Brasil, recebimento de comprovantes e arquivamento.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-animate="slide-right">
+                    <div class="timeline-content">
+                        <p class="period">05/2001 - 12/2001</p>
+                        <h3>Estagiária de Contabilidade</h3>
+                        <p class="company">Banco do Brasil</p>
+                        <p>Recebimento de borderôs de pagamento da Petrobrás, conferência, organização, e envio para autorização de pagamento.</p>
+                    </div>
+                </div>
+                 <div class="timeline-item right" data-animate="slide-left">
+                    <div class="timeline-content">
+                        <p class="period">07/2000 - 01/2001</p>
+                        <h3>Jovem Aprendiz</h3>
+                        <p class="company">Carrefour</p>
+                        <p>Organização de prateleiras, abastecimento de produtos e emissão de etiquetas. Atendimento ao cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competencias">
+            <div class="container">
+                <h2 data-animate="fade-up">Competências</h2>
+                
+                <h3 data-animate="fade-up">Habilidades Criativas & Técnicas</h3>
+                <div class="skills-grid">
+                    <div class="skill-card level-advanced" data-animate="fade-up" style="transition-delay: 0.0s;">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                            <h4>Photoshop</h4>
+                        </div>
+                        <div class="skill-level-indicator">
+                            <div class="skill-bar-container">
+                                <div class="skill-bar"></div>
+                            </div>
+                            <div class="skill-level-text">Avançado</div>
+                        </div>
+                    </div>
+                    <div class="skill-card level-advanced" data-animate="fade-up" style="transition-delay: 0.05s;">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                            <h4>Illustrator</h4>
+                        </div>
+                        <div class="skill-level-indicator">
+                            <div class="skill-bar-container">
+                                <div class="skill-bar"></div>
+                            </div>
+                            <div class="skill-level-text">Avançado</div>
+                        </div>
+                    </div>
+                    <div class="skill-card level-advanced" data-animate="fade-up" style="transition-delay: 0.1s;">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.67 18.5c.5.38.9.88 1.22 1.48.34.62.58 1.32.74 2.12.13.62.2 1.28.2 1.98a2.5 2.5 0 01-2.5 2.5c-.7 0-1.36-.07-1.98-.2a8.5 8.5 0 01-4.24-2.22c-1.88-1.52-3.26-3.6-3.98-5.92A9.4 9.4 0 014 10.5C4 7.42 6.42 5 9.5 5c.62 0 1.22.07 1.8.2.8.16 1.5.4 2.12.74.62.33 1.12.72 1.48 1.22L18 10.5l-1.92 1.92-2.4-2.4Z"></path><path d="m18 13 2.5 2.5"></path><path d="m18 7 2.5-2.5"></path><path d="m13 18l2.5 2.5"></path><path d="M7 18l-2.5 2.5"></path></svg>
+                            <h4>Canva</h4>
+                        </div>
+                        <div class="skill-level-indicator">
+                            <div class="skill-bar-container">
+                                <div class="skill-bar"></div>
+                            </div>
+                            <div class="skill-level-text">Avançado</div>
+                        </div>
+                    </div>
+                    <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.15s;">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            <h4>HTML</h4>
+                        </div>
+                        <div class="skill-level-indicator">
+                            <div class="skill-bar-container">
+                                <div class="skill-bar"></div>
+                            </div>
+                           <div class="skill-level-text">Intermediário</div>
+                        </div>
+                    </div>
+                    <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.2s;">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V12.5"></path><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M10.1 12.1a2.1 2.1 0 1 0-2.2 2.2"></path><path d="M14.2 21a2.1 2.1 0 1 0-2.2-2.2"></path><path d="M18.3 14.3a2.1 2.1 0 1 0-2.2-2.2"></path></svg>
+                            <h4>CSS</h4>
+                        </div>
+                        <div class="skill-level-indicator">
+                            <div class="skill-bar-container">
+                                <div class="skill-bar"></div>
+                            </div>
+                            <div class="skill-level-text">Intermediário</div>
+                        </div>
+                    </div>
+                    <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.25s;">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18h-1v-6h1v1h1v2h-1v3zm4-4h-1v-2h1v1h1v2h-1v-1z"></path></svg>
+                            <h4>Excel</h4>
+                        </div>
+                        <div class="skill-level-indicator">
+                            <div class="skill-bar-container">
+                                <div class="skill-bar"></div>
+                            </div>
+                            <div class="skill-level-text">Intermediário</div>
+                        </div>
+                    </div>
+                    <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.3s;">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            <h4>Word</h4>
+                        </div>
+                        <div class="skill-level-indicator">
+                            <div class="skill-bar-container">
+                                <div class="skill-bar"></div>
+                            </div>
+                           <div class="skill-level-text">Intermediário</div>
+                        </div>
+                    </div>
+                    <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.35s;">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="M9 15h6"></path></svg>
+                            <h4>Power Point</h4>
+                        </div>
+                        <div class="skill-level-indicator">
+                            <div class="skill-bar-container">
+                                <div class="skill-bar"></div>
+                            </div>
+                            <div class="skill-level-text">Intermediário</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 data-animate="fade-up">Formação Acadêmica</h3>
+                <div class="education-list">
+                    <div class="education-item" data-animate="fade-up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0l8.59-3.9z"></path><path d="M22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+                        <div>
+                            <strong>Design Gráfico</strong><br>
+                            <span>UNIP - Dez/2023</span>
+                        </div>
+                    </div>
+                    <div class="education-item" data-animate="fade-up">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0l8.59-3.9z"></path><path d="M22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+                        <div>
+                            <strong>Técnico em Contabilidade</strong><br>
+                            <span>EE Casemiro de Abreu - Dez/2001</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="ambiente" class="container">
+            <h2 data-animate="fade-up">Ambiente de Trabalho Ideal</h2>
+            <p class="intro" data-animate="fade-up">Minha sensibilidade a ruídos e multidões torna o transporte público um grande desafio. Por isso, busco oportunidades que me permitam focar no que faço de melhor, minimizando o desgaste do deslocamento.</p>
+            <div class="preferences-cards">
+                <div class="preference-card" data-animate="fade-up" style="transition-delay: 0s;">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <h4>Remoto</h4>
+                    <p>Ambiente controlado que favorece o hiperfoco e a qualidade nas entregas.</p>
+                </div>
+                <div class="preference-card" data-animate="fade-up" style="transition-delay: 0.1s;">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <h4>Híbrido</h4>
+                    <p>Com fácil acesso ao metrô para facilitar os dias presenciais.</p>
+                </div>
+                <div class="preference-card" data-animate="fade-up" style="transition-delay: 0.2s;">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <h4>Presencial</h4>
+                    <p>Na região do Tatuapé, para um trajeto curto e tranquilo.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <h2 data-animate="fade-up">Vamos criar algo incrível juntos?</h2>
+        <a href="./curriculo-daniela-genovese.pdf" download class="download-btn" data-animate="fade-up" style="transition-delay: 0.1s;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Baixar Currículo
+        </a>
+        <p class="credits" data-animate="fade-in" style="transition-delay: 0.2s;">Criado com HTML, CSS & um toque de JavaScript</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Scroll Animation Logic ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const animatedElements = document.querySelectorAll('[data-animate]');
+        animatedElements.forEach((el) => observer.observe(el));
+
+        // --- QI Counter Animation Logic ---
+        const animateCountUp = (el) => {
+            const target = parseInt(el.getAttribute('data-target'), 10);
+            let count = 0;
+            const duration = 1500; // milliseconds
+            const increment = target / (duration / 16); // ~60fps
+
+            const updateCount = () => {
+                count += increment;
+                if (count < target) {
+                    el.innerText = Math.ceil(count);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    el.innerText = target;
+                }
+            };
+            requestAnimationFrame(updateCount);
+        };
+
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCountUp(entry.target);
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelectorAll('.score[data-target]').forEach(el => {
+            counterObserver.observe(el);
+        });
+    });
+    </script>
+
+</body>
+</html>
