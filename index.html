@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daniela Genovese - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --color-primary: #4338CA; /* Indigo 700 */
-            --color-primary-dark: #312E81; /* Indigo 900 */
-            --color-secondary: #F59E0B; /* Amber 500 */
-            --color-bg: #F8FAFC; /* Slate 50 */
-            --color-text: #334155; /* Slate 700 */
-            --color-heading: #1E293B; /* Slate 800 */
-            --color-light-gray: #E2E8F0; /* Slate 200 */
+            --color-primary: #4338CA;
+            /* Indigo 700 */
+            --color-primary-dark: #312E81;
+            /* Indigo 900 */
+            --color-secondary: #F59E0B;
+            /* Amber 500 */
+            --color-bg: #F8FAFC;
+            /* Slate 50 */
+            --color-text: #334155;
+            /* Slate 700 */
+            --color-heading: #1E293B;
+            /* Slate 800 */
+            --color-light-gray: #E2E8F0;
+            /* Slate 200 */
             --font-heading: 'Poppins', sans-serif;
             --font-body: 'Lato', sans-serif;
+            --color-gray: #ccc;
         }
 
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -36,7 +48,8 @@
             color: var(--color-text);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden; /* Prevent horizontal scrollbars from animations */
+            overflow-x: hidden;
+            /* Prevent horizontal scrollbars from animations */
         }
 
         .container {
@@ -45,7 +58,10 @@
             padding: 2rem 1.5rem;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: var(--font-heading);
             color: var(--color-heading);
             font-weight: 700;
@@ -92,9 +108,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%),
-                linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%);
+            background:
+                linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.05) 75%);
             background-size: 60px 60px;
             background-position: 0 0, 30px 30px;
             opacity: 0.5;
@@ -102,8 +118,13 @@
         }
 
         @keyframes move-bg {
-            0% { background-position: 0 0, 30px 30px; }
-            100% { background-position: 60px 60px, 90px 90px; }
+            0% {
+                background-position: 0 0, 30px 30px;
+            }
+
+            100% {
+                background-position: 60px 60px, 90px 90px;
+            }
         }
 
 
@@ -161,7 +182,7 @@
             gap: 3rem;
             align-items: center;
         }
-        
+
         @media (min-width: 768px) {
             #sobre .container {
                 grid-template-columns: 1fr 1fr;
@@ -172,7 +193,7 @@
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .about-text strong {
             color: var(--color-primary);
             font-weight: 700;
@@ -191,22 +212,23 @@
             padding: 1rem;
             border-radius: 12px;
             background: linear-gradient(145deg, #ffffff, #e6e9ee);
-            border: 1px solid var(--color-light-gray);
+            border: 2px solid var(--color-light-gray);
             transition: all 0.3s ease-in-out;
         }
 
         .superpower-card:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: scale(1.02);
             box-shadow: 0 10px 25px rgba(67, 56, 202, 0.1);
-            border-color: var(--color-primary);
+            border-color: var(--color-gray);
         }
-        
+
         .superpower-card svg {
             flex-shrink: 0;
             width: 32px;
             height: 32px;
             color: var(--color-primary);
         }
+
         .superpower-card h4 {
             margin-bottom: 0.2rem;
             font-size: 1.1rem;
@@ -222,15 +244,16 @@
             grid-template-columns: 1fr;
             gap: 2rem;
         }
+
         @media (min-width: 600px) {
             .cognitive-cards {
-                 grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
-        
+
         .cognitive-card {
             background-color: #F8FAFC;
-            border: 1px solid var(--color-light-gray);
+            border: 2px solid var(--color-light-gray);
             border-radius: 12px;
             padding: 2rem 1.5rem;
             text-align: center;
@@ -238,9 +261,9 @@
         }
 
         .cognitive-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(67, 56, 202, 0.1);
-            border-color: var(--color-primary);
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-gray);
         }
 
         .cognitive-card svg {
@@ -298,8 +321,13 @@
             z-index: 1;
         }
 
-        .timeline-item.left { left: 0; }
-        .timeline-item.right { left: 50%; }
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
 
         .timeline-item.left::after {
             right: -10px;
@@ -313,29 +341,33 @@
             padding: 1.5rem;
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .timeline-content .period {
             font-size: 0.875rem;
             font-weight: 700;
             color: var(--color-primary);
             margin-bottom: 0.5rem;
         }
+
         .timeline-content h3 {
             font-size: 1.2rem;
             margin-bottom: 0.25rem;
         }
+
         .timeline-content .company {
             font-weight: 700;
-            color: #64748B; /* Slate 500 */
+            color: #64748B;
+            /* Slate 500 */
             margin-bottom: 0.75rem;
         }
 
         /* Competencies Section */
         #competencias {
-             background-color: #FFFFFF;
+            background-color: #FFFFFF;
         }
+
         #competencias h3 {
             font-size: 1.5rem;
             text-align: center;
@@ -348,11 +380,13 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
         }
-         @media (min-width: 768px) {
+
+        @media (min-width: 768px) {
             .skills-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
         }
+
         .skill-card {
             background-color: #F8FAFC;
             border-radius: 12px;
@@ -368,12 +402,14 @@
             align-items: center;
             min-height: 170px;
         }
+
         .skill-card:hover {
             transform: translateY(-15px);
-            border-color: var(--color-primary);
-            box-shadow: 0 15px 30px rgba(67, 56, 202, 0.15);
+            border-color: var(--color-gray);
+            /**/box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
             z-index: 10;
         }
+
         .skill-card svg {
             width: 40px;
             height: 40px;
@@ -381,9 +417,11 @@
             margin: 0 auto 1rem;
             transition: color 0.3s;
         }
+
         .skill-card:hover svg {
             color: var(--color-secondary);
         }
+
         .skill-card h4 {
             font-family: var(--font-body);
             font-weight: 700;
@@ -399,7 +437,7 @@
             border-radius: 4px;
             overflow: hidden;
         }
-        
+
         .skill-bar {
             height: 100%;
             width: 0;
@@ -410,6 +448,7 @@
         .skill-card.visible.level-advanced .skill-bar {
             width: 95%;
         }
+
         .skill-card.visible.level-intermediate .skill-bar {
             width: 75%;
         }
@@ -417,6 +456,7 @@
         .skill-card.level-advanced .skill-bar {
             background-color: var(--color-primary);
         }
+
         .skill-card.level-intermediate .skill-bar {
             background-color: var(--color-secondary);
         }
@@ -443,6 +483,7 @@
         .skill-card.level-advanced .skill-level-panel {
             background-color: var(--color-primary);
         }
+
         .skill-card.level-intermediate .skill-level-panel {
             background-color: var(--color-secondary);
         }
@@ -455,6 +496,7 @@
             max-width: 600px;
             margin: 0 auto;
         }
+
         .education-item {
             display: flex;
             align-items: center;
@@ -464,17 +506,20 @@
             border-radius: 12px;
             border: 2px solid var(--color-light-gray);
         }
+
         .education-item svg {
             color: var(--color-primary);
             width: 32px;
             height: 32px;
             flex-shrink: 0;
         }
+
         .education-item strong {
             font-weight: 700;
             color: var(--color-heading);
             font-size: 1.1rem;
         }
+
         .education-item span {
             color: var(--color-text);
         }
@@ -485,6 +530,7 @@
             max-width: 60ch;
             margin: 0 auto 2.5rem;
         }
+
         .preferences-cards {
             display: grid;
             grid-template-columns: 1fr;
@@ -492,32 +538,37 @@
         }
 
         @media (min-width: 820px) {
-             .preferences-cards {
+            .preferences-cards {
                 grid-template-columns: repeat(3, 1fr);
-             }
+            }
         }
+
         .preference-card {
             background-color: white;
             padding: 2rem 1.5rem;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .preference-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
         }
+
         .preference-card svg {
             width: 40px;
             height: 40px;
             color: var(--color-primary);
             margin: 0 auto 1rem;
         }
+
         .preference-card h4 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
+
         .preference-card p {
             font-size: 0.9rem;
             color: #64748B;
@@ -530,14 +581,17 @@
             text-align: center;
             padding: 3rem 1.5rem;
         }
+
         .footer h2 {
             color: white;
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
         }
+
         .footer h2::after {
             background-color: var(--color-secondary);
         }
+
         .download-btn {
             background-color: var(--color-secondary);
             color: var(--color-primary-dark);
@@ -554,15 +608,19 @@
             border: none;
             cursor: pointer;
         }
+
         .download-btn:hover {
-            background-color: #FBBF24; /* Amber 400 */
+            background-color: #FBBF24;
+            /* Amber 400 */
             transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
         }
+
         .download-btn svg {
             width: 20px;
             height: 20px;
         }
+
         .footer .credits {
             margin-top: 2rem;
             font-size: 0.9rem;
@@ -571,13 +629,30 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header h1 { font-size: 2.5rem; }
-            .timeline::after { left: 20px; }
-            .timeline-item { width: 100%; padding-left: 50px; padding-right: 1rem; }
-            .timeline-item.right { left: 0; }
-            .timeline-item.left::after, .timeline-item.right::after { left: 10px; }
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::after {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 1rem;
+            }
+
+            .timeline-item.right {
+                left: 0;
+            }
+
+            .timeline-item.left::after,
+            .timeline-item.right::after {
+                left: 10px;
+            }
         }
-        
+
         @media (max-width: 600px) {
             .cognitive-cards {
                 grid-template-columns: 1fr;
@@ -590,40 +665,79 @@
             opacity: 0;
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+
         [data-animate="fade-up"] {
             transform: translateY(30px);
         }
+
         [data-animate="fade-in"] {
             transform: translateY(0);
         }
+
         [data-animate="slide-left"] {
             transform: translateX(-50px);
         }
-         [data-animate="slide-right"] {
+
+        [data-animate="slide-right"] {
             transform: translateX(50px);
         }
+
         [data-animate].visible {
             opacity: 1;
             transform: translateY(0) translateX(0);
         }
+
+        /*.cognitive-card,
+.superpower-card,
+.skill-card {
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+        .cognitive-cards,
+.skills-grid,
+.superpowers {
+    overflow: visible;
+}
+
+.cognitive-card:hover,
+.superpower-card:hover,
+.skill-card:hover {
+    transform: scale(1.04);
+    z-index: 2;
+}*/
     </style>
 </head>
+
 <body>
 
     <header class="header">
         <h1 class="name" data-animate="fade-up">DANIELA GENOVESE</h1>
-        <p class="subtitle" data-animate="fade-up" style="transition-delay: 0.1s;">DESIGNER GRÁFICA & ASSISTENTE ADMINISTRATIVA</p>
+        <p class="subtitle" data-animate="fade-up" style="transition-delay: 0.1s;">DESIGNER GRÁFICA & ASSISTENTE
+            ADMINISTRATIVA</p>
         <div class="contact-info" data-animate="fade-up" style="transition-delay: 0.2s;">
             <a href="tel:11980648490">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
                 (11) 98064-8490
             </a>
             <a href="https://www.linkedin.com/in/danielagenovese" target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
                 /danielagenovese
             </a>
             <a href="mailto:daniela.genovese@gmail.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
                 daniela.genovese@gmail.com
             </a>
         </div>
@@ -635,29 +749,48 @@
                 <div class="about-text" data-animate="fade-up">
                     <h2 style="text-align: left; margin-bottom: 2rem;">Sobre Mim</h2>
                     <p>
-                        Onde alguns veem linhas, eu vejo padrões. Onde há caos, eu crio ordem. Minha jornada com o design não começou em um curso, mas na forma como meu cérebro sempre esteve programado para ver o mundo.
+                        Onde alguns veem linhas, eu vejo padrões. Onde há caos, eu crio ordem. Minha jornada com o
+                        design não começou em um curso, mas na forma como meu cérebro sempre esteve programado para ver
+                        o mundo.
                     </p>
                     <p>
-                        O diagnóstico de <strong>autismo nível 1</strong> não me definiu, apenas nomeou meu maior trunfo: um sistema operacional nativo para a <strong>criatividade focada e a execução impecável</strong>.
+                        O diagnóstico de <strong>autismo nível 1</strong> não me definiu, apenas nomeou meu maior
+                        trunfo: um sistema operacional nativo para a <strong>criatividade focada e a execução
+                            impecável</strong>.
                     </p>
                 </div>
                 <div class="superpowers">
                     <div class="superpower-card" data-animate="fade-up" style="transition-delay: 0.1s;">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
                         <div>
                             <h4>Foco Absoluto</h4>
                             <p>Capacidade de mergulhar em projetos, silenciando o ruído externo.</p>
                         </div>
                     </div>
                     <div class="superpower-card" data-animate="fade-up" style="transition-delay: 0.2s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
                         <div>
                             <h4>Organização Impecável</h4>
                             <p>Estruturo informações, arquivos e fluxos de trabalho de forma lógica.</p>
                         </div>
                     </div>
                     <div class="superpower-card" data-animate="fade-up" style="transition-delay: 0.3s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
                         <div>
                             <h4>Visão de Detalhe</h4>
                             <p>Percebo as nuances que transformam o bom design em algo extraordinário.</p>
@@ -670,27 +803,51 @@
         <section id="qi">
             <div class="container">
                 <h2 data-animate="fade-up">Perfil Cognitivo</h2>
-                <p data-animate="fade-up" style="text-align: center; max-width: 70ch; margin: -2rem auto 2.5rem; transition-delay: 0.1s;">As avaliações neuropsicológicas revelaram um perfil cognitivo com pontos fortes específicos, traduzidos aqui como vantagens competitivas para o ambiente profissional.</p>
+                <p data-animate="fade-up"
+                    style="text-align: center; max-width: 70ch; margin: -2rem auto 2.5rem; transition-delay: 0.1s;">As
+                    avaliações neuropsicológicas revelaram um perfil cognitivo com pontos fortes específicos, traduzidos
+                    aqui como vantagens competitivas para o ambiente profissional.</p>
                 <div class="cognitive-cards">
                     <div class="cognitive-card" data-animate="fade-up" style="transition-delay: 0.2s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
                         <h4>Funções Executivas</h4>
-                        <p>Ótimo desempenho em planejamento, organização e resolução de problemas, indicando alta capacidade de execução estratégica.</p>
+                        <p>Ótimo desempenho em planejamento, organização e resolução de problemas, indicando alta
+                            capacidade de execução estratégica.</p>
                     </div>
                     <div class="cognitive-card" data-animate="fade-up" style="transition-delay: 0.3s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
                         <h4>Memória Visual & Percepção</h4>
-                        <p>Desempenho superior na cópia e memorização de figuras, garantindo alta fidelidade e atenção aos detalhes em projetos visuais.</p>
+                        <p>Desempenho superior na cópia e memorização de figuras, garantindo alta fidelidade e atenção
+                            aos detalhes em projetos visuais.</p>
                     </div>
                     <div class="cognitive-card" data-animate="fade-up" style="transition-delay: 0.4s;">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
                         <h4>Atenção Sustentada</h4>
-                        <p>Capacidade de atenção e concentração acima da média, a base neurológica do superpoder de hiperfoco.</p>
+                        <p>Capacidade de atenção e concentração acima da média, a base neurológica do superpoder de
+                            hiperfoco.</p>
                     </div>
                     <div class="cognitive-card" data-animate="fade-up" style="transition-delay: 0.5s;">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
                         <h4>Raciocínio & Linguagem</h4>
-                        <p>Habilidade verbal e de linguagem apropriadas, assegurando excelente comunicação e compreensão de briefings.</p>
+                        <p>Habilidade verbal e de linguagem apropriadas, assegurando excelente comunicação e compreensão
+                            de briefings.</p>
                     </div>
                 </div>
             </div>
@@ -704,7 +861,9 @@
                         <p class="period">2007 - Atual</p>
                         <h3>Designer Gráfica</h3>
                         <p class="company">Freelancer</p>
-                        <p>Vetorização e tratamento de imagens (Photoshop, Illustrator). Criação e administração de site com molduras digitais, tutoriais e artes para festas, gerando receita através de anúncios.</p>
+                        <p>Vetorização e tratamento de imagens (Photoshop, Illustrator). Criação e administração de site
+                            com molduras digitais, tutoriais e artes para festas, gerando receita através de anúncios.
+                        </p>
                     </div>
                 </div>
                 <div class="timeline-item right" data-animate="slide-left">
@@ -712,7 +871,8 @@
                         <p class="period">07/2003 - 01/2004</p>
                         <h3>Auxiliar de Escritório</h3>
                         <p class="company">Petrobrás</p>
-                        <p>Organização de documentos de borderô, conferência de dados, envio para o Banco do Brasil, recebimento de comprovantes e arquivamento.</p>
+                        <p>Organização de documentos de borderô, conferência de dados, envio para o Banco do Brasil,
+                            recebimento de comprovantes e arquivamento.</p>
                     </div>
                 </div>
                 <div class="timeline-item left" data-animate="slide-right">
@@ -720,15 +880,17 @@
                         <p class="period">05/2001 - 12/2001</p>
                         <h3>Estagiária de Contabilidade</h3>
                         <p class="company">Banco do Brasil</p>
-                        <p>Recebimento de borderôs de pagamento da Petrobrás, conferência, organização, e envio para autorização de pagamento.</p>
+                        <p>Recebimento de borderôs de pagamento da Petrobrás, conferência, organização, e envio para
+                            autorização de pagamento.</p>
                     </div>
                 </div>
-                 <div class="timeline-item right" data-animate="slide-left">
+                <div class="timeline-item right" data-animate="slide-left">
                     <div class="timeline-content">
                         <p class="period">07/2000 - 01/2001</p>
                         <h3>Jovem Aprendiz</h3>
                         <p class="company">Carrefour</p>
-                        <p>Organização de prateleiras, abastecimento de produtos e emissão de etiquetas. Atendimento ao cliente.</p>
+                        <p>Organização de prateleiras, abastecimento de produtos e emissão de etiquetas. Atendimento ao
+                            cliente.</p>
                     </div>
                 </div>
             </div>
@@ -737,11 +899,14 @@
         <section id="competencias">
             <div class="container">
                 <h2 data-animate="fade-up">Competências</h2>
-                
+
                 <h3 data-animate="fade-up">Habilidades Criativas & Técnicas</h3>
                 <div class="skills-grid">
                     <div class="skill-card level-advanced" data-animate="fade-up" style="transition-delay: 0.0s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="currentColor"
+                            stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 24 C 4 25.105 4.895 26 6 26 L 24 26 C 25.105 26 26 25.105 26 24 L 26 6 C 26 4.895 25.105 4 24 4 L 6 4 z M 8 9.9921875 L 11.978516 9.9921875 C 13.947516 9.9921875 15.294922 11.339125 15.294922 13.328125 C 15.294922 15.283125 13.898344 16.623047 11.902344 16.623047 L 9.7636719 16.623047 L 9.7636719 19.857422 L 8 19.857422 L 8 9.9921875 z M 9.7636719 11.46875 L 9.7636719 15.160156 L 11.507812 15.160156 C 12.765813 15.160156 13.503906 14.504125 13.503906 13.328125 C 13.503906 12.119125 12.784672 11.46875 11.513672 11.46875 L 9.7636719 11.46875 z M 19.207031 12.226562 C 20.984031 12.226562 22.099656 13.013047 22.222656 14.373047 L 20.630859 14.373047 C 20.507859 13.847047 20.007844 13.511719 19.214844 13.511719 C 18.442844 13.511719 17.861328 13.881875 17.861328 14.421875 C 17.861328 14.845875 18.21675 15.105391 18.96875 15.275391 L 20.287109 15.576172 C 21.716109 15.897172 22.378906 16.513281 22.378906 17.613281 C 22.378906 19.050281 21.059359 20.007813 19.193359 20.007812 C 17.327359 20.007812 16.151484 19.199844 16.021484 17.839844 L 17.697266 17.839844 C 17.861266 18.393844 18.386375 18.722656 19.234375 18.722656 C 20.088375 18.722656 20.683594 18.346969 20.683594 17.792969 C 20.683594 17.368969 20.363344 17.101359 19.652344 16.943359 L 18.326172 16.636719 C 16.890172 16.308719 16.214844 15.645578 16.214844 14.517578 C 16.214844 13.163578 17.443031 12.226562 19.207031 12.226562 z"/></svg>
+                        </svg>
                         <h4>Photoshop</h4>
                         <div class="skill-bar-container">
                             <div class="skill-bar"></div>
@@ -749,57 +914,92 @@
                         <div class="skill-level-panel">Avançado</div>
                     </div>
                     <div class="skill-card level-advanced" data-animate="fade-up" style="transition-delay: 0.05s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="currentColor"
+                            stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 24 C 4 25.105 4.895 26 6 26 L 24 26 C 25.105 26 26 25.105 26 24 L 26 6 C 26 4.895 25.105 4 24 4 L 6 4 z M 19.660156 9.2480469 C 20.282156 9.2480469 20.707031 9.6445469 20.707031 10.185547 C 20.707031 10.726547 20.282156 11.123047 19.660156 11.123047 C 19.045156 11.123047 18.615234 10.726547 18.615234 10.185547 C 18.615234 9.6445469 19.045156 9.2480469 19.660156 9.2480469 z M 11.792969 9.953125 L 13.775391 9.953125 L 17.28125 19.818359 L 15.388672 19.818359 L 14.554688 17.296875 L 10.925781 17.296875 L 10.076172 19.818359 L 8.2929688 19.818359 L 11.792969 9.953125 z M 12.6875 11.832031 L 11.335938 15.900391 L 14.144531 15.900391 L 12.804688 11.832031 L 12.6875 11.832031 z M 18.820312 12.339844 L 20.507812 12.339844 L 20.507812 19.818359 L 18.820312 19.818359 L 18.820312 12.339844 z"/>
+                        </svg>
                         <h4>Illustrator</h4>
-                         <div class="skill-bar-container">
+                        <div class="skill-bar-container">
                             <div class="skill-bar"></div>
                         </div>
                         <div class="skill-level-panel">Avançado</div>
                     </div>
                     <div class="skill-card level-advanced" data-animate="fade-up" style="transition-delay: 0.1s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.67 18.5c.5.38.9.88 1.22 1.48.34.62.58 1.32.74 2.12.13.62.2 1.28.2 1.98a2.5 2.5 0 01-2.5 2.5c-.7 0-1.36-.07-1.98-.2a8.5 8.5 0 01-4.24-2.22c-1.88-1.52-3.26-3.6-3.98-5.92A9.4 9.4 0 014 10.5C4 7.42 6.42 5 9.5 5c.62 0 1.22.07 1.8.2.8.16 1.5.4 2.12.74.62.33 1.12.72 1.48 1.22L18 10.5l-1.92 1.92-2.4-2.4Z"></path><path d="m18 13 2.5 2.5"></path><path d="m18 7 2.5-2.5"></path><path d="m13 18l2.5 2.5"></path><path d="M7 18l-2.5 2.5"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 50 50"
+                            fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M25,2C12.317,2,2,12.317,2,25s10.317,23,23,23s23-10.317,23-23S37.683,2,25,2z M24.109,39.954 c-6.781,0-11.176-5.086-11.176-12.782c0-9.942,6.888-17.128,14.639-17.128c4.69,0,7.486,2.361,7.486,5.573 c0,3.313-2.395,5.658-4.436,5.658c-0.508,0-0.764-0.249-0.764-0.661c0-0.917,1.478-2.295,1.478-4.896 c0-2.192-1.338-3.569-3.53-3.569c-4.69,0-10.029,5.541-10.029,15.124c0,5.657,2.809,9.753,7.346,9.753 c3.924,0,7.314-2.816,9.277-6.797c0.174-0.35,0.341-0.51,0.531-0.51c0.275,0,0.538,0.236,0.538,0.75 C35.467,32.793,31.306,39.954,24.109,39.954z" />
+                        </svg>
                         <h4>Canva</h4>
-                         <div class="skill-bar-container">
+                        <div class="skill-bar-container">
                             <div class="skill-bar"></div>
                         </div>
                         <div class="skill-level-panel">Avançado</div>
                     </div>
                     <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.15s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" viewBox="0 0 500 600" fill="currentColor"
+                            stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            
+		<path d="M475.095,131.986c-0.032-2.525-0.844-5.015-2.568-6.992L366.324,3.684c-0.021-0.029-0.053-0.045-0.084-0.071    c-0.633-0.712-1.36-1.289-2.141-1.803c-0.232-0.15-0.465-0.29-0.707-0.422c-0.686-0.372-1.393-0.669-2.131-0.891    c-0.2-0.058-0.379-0.145-0.59-0.188C359.87,0.114,359.037,0,358.203,0H97.2C85.292,0,75.6,9.688,75.6,21.601v507.6    c0,11.907,9.692,21.601,21.6,21.601H453.6c11.908,0,21.601-9.693,21.601-21.601V133.197    C475.2,132.791,475.137,132.393,475.095,131.986z M97.2,21.601h250.203v110.51c0,5.962,4.831,10.8,10.8,10.8H453.6l0.011,223.837    H97.2V21.601z M180.457,499.311h-21.642v-41.26h-35.744v41.26h-21.769v-98.613h21.769v37.895h35.744v-37.895h21.642V499.311z     M265.874,419.429h-26.188v79.882h-21.779v-79.882h-25.763v-18.731h73.73V419.429z M359.416,499.311l-1.424-37.747    c-0.422-11.85-0.854-26.188-0.854-40.532h-0.422c-2.996,12.583-6.982,26.631-10.685,38.19l-11.665,38.476H317.43l-10.252-38.18    c-3.133-11.56-6.412-25.608-8.69-38.486h-0.285c-0.564,13.321-1.002,28.535-1.692,40.827l-1.72,37.457h-20.07l6.117-98.613h28.903    l9.397,32.917c2.995,11.412,5.975,23.704,8.121,35.264h0.422c2.711-11.417,5.975-24.427,9.112-35.406l10.252-32.774h28.329    l5.263,98.613h-21.221V499.311z M457.238,499.311h-59.938v-98.613h21.779v79.882h38.153v18.731H457.238z"/>
+		<polygon points="154.132,249.086 236.872,287.523 236.872,269.254 174.295,241.851 174.295,241.505 236.872,214.094     236.872,195.827 154.132,234.262   "/>
+		<polygon points="249.642,294.416 267.047,294.416 303.93,169.452 286.527,169.452   "/>
+		<polygon points="313.938,214.094 377.895,241.505 377.895,241.851 313.938,269.254 313.938,287.523 396.668,249.605     396.668,233.745 313.938,195.827   "/>
+	
+                        </svg>
                         <h4>HTML</h4>
-                         <div class="skill-bar-container">
+                        <div class="skill-bar-container">
                             <div class="skill-bar"></div>
                         </div>
                         <div class="skill-level-panel">Intermediário</div>
                     </div>
                     <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.2s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V12.5"></path><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M10.1 12.1a2.1 2.1 0 1 0-2.2 2.2"></path><path d="M14.2 21a2.1 2.1 0 1 0-2.2-2.2"></path><path d="M18.3 14.3a2.1 2.1 0 1 0-2.2-2.2"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" viewBox="0 0 500 600" fill="currentColor"
+                            stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            
+		<path d="M475.084,131.992c-0.021-2.531-0.828-5.021-2.562-6.993L366.324,3.694c-0.031-0.031-0.062-0.045-0.084-0.076    c-0.633-0.707-1.371-1.295-2.151-1.804c-0.232-0.155-0.464-0.285-0.707-0.422c-0.675-0.366-1.392-0.675-2.13-0.896    c-0.201-0.053-0.38-0.135-0.58-0.188C359.87,0.119,359.037,0,358.193,0H97.2C85.282,0,75.6,9.693,75.6,21.601v507.6    c0,11.907,9.682,21.601,21.6,21.601H453.6c11.908,0,21.601-9.693,21.601-21.601V133.197    C475.2,132.796,475.137,132.398,475.084,131.992z M188.81,502.242c8.938,0,18.853-1.94,24.685-4.281l4.464,23.14    c-5.442,2.721-17.685,5.632-33.623,5.632c-45.291,0-68.618-28.182-68.618-65.507c0-44.708,31.88-69.588,71.531-69.588    c15.354,0,27.019,3.111,32.271,5.832l-6.025,23.515c-6.027-2.521-14.381-4.847-24.877-4.847    c-23.517,0-41.792,14.186-41.792,43.332C146.82,485.716,162.372,502.242,188.81,502.242z M269.48,526.732    c-14.963,0-29.737-3.892-37.125-7.974l6.027-24.489c7.971,4.081,20.213,8.163,32.849,8.163c13.608,0,20.801-5.632,20.801-14.186    c0-8.163-6.223-12.825-21.961-18.468c-21.769-7.583-35.96-19.628-35.96-38.676c0-22.359,18.658-39.466,49.573-39.466    c14.761,0,25.65,3.111,33.429,6.612l-6.613,23.91c-5.252-2.531-14.576-6.223-27.411-6.223c-12.825,0-19.045,5.832-19.045,12.641    c0,8.363,7.388,12.05,24.297,18.468c23.13,8.553,34.014,20.593,34.014,39.06C322.354,508.075,305.448,526.732,269.48,526.732z     M374.467,526.732c-14.966,0-29.742-3.892-37.125-7.974l6.022-24.489c7.963,4.081,20.213,8.163,32.843,8.163    c13.616,0,20.799-5.632,20.799-14.186c0-8.163-6.213-12.825-21.954-18.468c-21.769-7.583-35.965-19.628-35.965-38.676    c0-22.359,18.663-39.466,49.576-39.466c14.766,0,25.649,3.111,33.428,6.612l-6.618,23.91c-5.247-2.531-14.57-6.223-27.4-6.223    c-12.836,0-19.048,5.832-19.048,12.641c0,8.363,7.389,12.05,24.295,18.468c23.129,8.553,34.019,20.593,34.019,39.06    C427.338,508.075,410.421,526.732,374.467,526.732z M453.6,366.747H97.2V21.601h250.192v110.51c0,5.97,4.842,10.8,10.801,10.8    H453.6V366.747z"/>
+		<path d="M200.852,155.071c0,6.615,0.952,12.973,1.896,19.575c0.946,6.584,1.885,13.184,1.885,19.786    c0,8.259-2.354,17.442-19.09,17.442V223.9c16.741,0,19.09,10.135,19.09,17.442c0,6.384-0.938,12.728-1.885,19.101    c-0.944,6.373-1.896,12.949-1.896,19.324c0,23.799,14.618,32.3,34.188,32.3h4.951V299.1h-4.237    c-13.205,0-18.631-7.314-18.631-20.509c0-5.653,0.712-11.085,1.653-16.986c0.944-5.645,1.65-11.53,1.65-17.898    c0.246-15.093-6.365-23.105-16.978-25.703v-0.453c10.613-2.845,17.215-10.389,16.978-25.471c0-6.362-0.706-12.029-1.65-17.909    c-0.941-5.664-1.653-11.328-1.653-16.738c0-12.73,4.709-20.273,18.631-20.273h4.237v-12.971h-4.951    C215.006,124.189,200.852,133.387,200.852,155.071z"/>
+		<path d="M337.162,194.432c0-6.602,0.949-13.202,1.894-19.786c0.944-6.602,1.894-12.959,1.894-19.575    c0-21.685-14.387-30.882-34.426-30.882h-4.714v12.971h4.239c13.68,0.231,18.626,7.538,18.626,20.273    c0,5.41-0.949,11.074-1.646,16.738c-0.959,5.888-1.903,11.551-1.903,17.909c0,15.082,6.607,22.618,16.985,25.471v0.453    c-10.378,2.592-16.985,10.61-16.985,25.703c0,6.373,0.944,12.258,1.903,17.898c0.696,5.906,1.646,11.338,1.646,16.986    c0,13.194-5.663,20.276-18.857,20.509h-4.008v12.967h4.946c19.332,0,34.183-8.501,34.183-32.3c0-6.375-0.944-12.951-1.888-19.324    c-0.939-6.373-1.889-12.717-1.889-19.101c0-7.312,2.363-17.442,19.101-17.442v-12.026    C339.525,211.874,337.162,202.69,337.162,194.432z"/>
+
+                        </svg>
                         <h4>CSS</h4>
-                         <div class="skill-bar-container">
+                        <div class="skill-bar-container">
                             <div class="skill-bar"></div>
                         </div>
                         <div class="skill-level-panel">Intermediário</div>
                     </div>
                     <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.25s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18h-1v-6h1v1h1v2h-1v3zm4-4h-1v-2h1v1h1v2h-1v-1z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="currentColor"
+                            stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M 15 3 A 2 2 0 0 0 14.599609 3.0429688 L 14.597656 3.0410156 L 4.6289062 5.0351562 L 4.6269531 5.0371094 A 2 2 0 0 0 3 7 L 3 23 A 2 2 0 0 0 4.6289062 24.964844 L 14.597656 26.958984 A 2 2 0 0 0 15 27 A 2 2 0 0 0 17 25 L 17 5 A 2 2 0 0 0 15 3 z M 19 5 L 19 8 L 21 8 L 21 10 L 19 10 L 19 12 L 21 12 L 21 14 L 19 14 L 19 16 L 21 16 L 21 18 L 19 18 L 19 20 L 21 20 L 21 22 L 19 22 L 19 25 L 25 25 C 26.105 25 27 24.105 27 23 L 27 7 C 27 5.895 26.105 5 25 5 L 19 5 z M 23 8 L 24 8 C 24.552 8 25 8.448 25 9 C 25 9.552 24.552 10 24 10 L 23 10 L 23 8 z M 6.1855469 10 L 8.5878906 10 L 9.8320312 12.990234 C 9.9330313 13.234234 10.013797 13.516891 10.091797 13.837891 L 10.125 13.837891 C 10.17 13.644891 10.258531 13.351797 10.394531 12.966797 L 11.785156 10 L 13.972656 10 L 11.359375 14.955078 L 14.050781 19.998047 L 11.716797 19.998047 L 10.212891 16.740234 C 10.155891 16.625234 10.089203 16.393266 10.033203 16.072266 L 10.011719 16.072266 C 9.9777187 16.226266 9.9105937 16.458578 9.8085938 16.767578 L 8.2949219 20 L 5.9492188 20 L 8.7324219 14.994141 L 6.1855469 10 z M 23 12 L 24 12 C 24.552 12 25 12.448 25 13 C 25 13.552 24.552 14 24 14 L 23 14 L 23 12 z M 23 16 L 24 16 C 24.552 16 25 16.448 25 17 C 25 17.552 24.552 18 24 18 L 23 18 L 23 16 z M 23 20 L 24 20 C 24.552 20 25 20.448 25 21 C 25 21.552 24.552 22 24 22 L 23 22 L 23 20 z"/>
+                        </svg>
                         <h4>Excel</h4>
-                         <div class="skill-bar-container">
+                        <div class="skill-bar-container">
                             <div class="skill-bar"></div>
                         </div>
                         <div class="skill-level-panel">Intermediário</div>
                     </div>
                     <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.3s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
                         <h4>Word</h4>
-                         <div class="skill-bar-container">
+                        <div class="skill-bar-container">
                             <div class="skill-bar"></div>
                         </div>
-                       <div class="skill-level-panel">Intermediário</div>
+                        <div class="skill-level-panel">Intermediário</div>
                     </div>
                     <div class="skill-card level-intermediate" data-animate="fade-up" style="transition-delay: 0.35s;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="M9 15h6"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="35" viewBox="0 0 1500 2400" fill="currentColor"
+                            stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1420.811 1342.116c29.93-44.724 47.436-98.484 47.436-156.197 0-136.32-97.13-250.391-225.883-276.593v260.668l178.447 172.122Zm-517.27-156.197c0 155.745 126.607 282.353 282.353 282.353 57.148 0 110.23-17.28 154.73-46.645l-211.2-203.633V909.326c-128.754 26.202-225.883 140.273-225.883 276.593Zm282.353-395.295c217.976 0 395.294 177.318 395.294 395.295 0 217.976-177.318 395.294-395.294 395.294-217.977 0-395.294-177.318-395.294-395.294 0-217.977 177.317-395.295 395.294-395.295Zm169.4-564.683v451.765h451.765v1016.47H112.94V225.941h1242.353ZM677.647 677.706H338.824v112.941h338.823V677.706Zm338.824-225.882v112.94H338.824v-112.94h677.647Zm451.764-202.504 315.445 315.445h-315.445V249.32Zm402.184 242.485L1541.195 162.58c-31.51-31.51-75.219-49.581-119.717-49.581H0v1694.118h1920V611.522c0-45.176-17.619-87.755-49.581-119.717Z"/>
+                        </svg>
                         <h4>Power Point</h4>
-                         <div class="skill-bar-container">
+                        <div class="skill-bar-container">
                             <div class="skill-bar"></div>
                         </div>
                         <div class="skill-level-panel">Intermediário</div>
@@ -809,14 +1009,28 @@
                 <h3 data-animate="fade-up">Formação Acadêmica</h3>
                 <div class="education-list">
                     <div class="education-item" data-animate="fade-up">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0l8.59-3.9z"></path><path d="M22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0l8.59-3.9z">
+                            </path>
+                            <path d="M22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6"></path>
+                            <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path>
+                        </svg>
                         <div>
                             <strong>Design Gráfico</strong><br>
                             <span>UNIP - Dez/2023</span>
                         </div>
                     </div>
                     <div class="education-item" data-animate="fade-up">
-                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0l8.59-3.9z"></path><path d="M22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6"></path><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0l8.59-3.9z">
+                            </path>
+                            <path d="M22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6"></path>
+                            <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path>
+                        </svg>
                         <div>
                             <strong>Técnico em Contabilidade</strong><br>
                             <span>EE Casemiro de Abreu - Dez/2001</span>
@@ -825,23 +1039,40 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="ambiente" class="container">
             <h2 data-animate="fade-up">Ambiente de Trabalho Ideal</h2>
-            <p class="intro" data-animate="fade-up">Minha sensibilidade a ruídos e multidões torna o transporte público um grande desafio. Por isso, busco oportunidades que me permitam focar no que faço de melhor, minimizando o desgaste do deslocamento.</p>
+            <p class="intro" data-animate="fade-up">Minha sensibilidade a ruídos e multidões torna o transporte público
+                um grande desafio. Por isso, busco oportunidades que me permitam focar no que faço de melhor,
+                minimizando o desgaste do deslocamento.</p>
             <div class="preferences-cards">
                 <div class="preference-card" data-animate="fade-up" style="transition-delay: 0s;">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
                     <h4>Remoto</h4>
                     <p>Ambiente controlado que favorece o hiperfoco.</p>
                 </div>
                 <div class="preference-card" data-animate="fade-up" style="transition-delay: 0.1s;">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
                     <h4>Híbrido</h4>
                     <p>Com fácil acesso ao metrô para facilitar os dias presenciais.</p>
                 </div>
                 <div class="preference-card" data-animate="fade-up" style="transition-delay: 0.2s;">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
                     <h4>Presencial</h4>
                     <p>Na região do Tatuapé, para um trajeto curto e tranquilo.</p>
                 </div>
@@ -851,28 +1082,36 @@
 
     <footer class="footer">
         <h2 data-animate="fade-up">Vamos criar algo incrível juntos?</h2>
-        <a href="https://bit.ly/cv_daniela-genovese" target="blank" download class="download-btn" data-animate="fade-up" style="transition-delay: 0.1s;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <a href="https://bit.ly/cv_daniela-genovese" target=download class="download-btn" data-animate="fade-up"
+            style="transition-delay: 0.1s;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
             Baixar Currículo
         </a>
-        <p class="credits" data-animate="fade-in" style="transition-delay: 0.2s;">Criado com HTML, CSS & um toque de JavaScript</p>
+        <p class="credits" data-animate="fade-in" style="transition-delay: 0.2s;">Criado com HTML, CSS & um toque de
+            JavaScript</p>
     </footer>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- Scroll Animation Logic ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Scroll Animation Logic ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
 
-        const animatedElements = document.querySelectorAll('[data-animate]');
-        animatedElements.forEach((el) => observer.observe(el));
-    });
+            const animatedElements = document.querySelectorAll('[data-animate]');
+            animatedElements.forEach((el) => observer.observe(el));
+        });
     </script>
 
 </body>
+
 </html>
